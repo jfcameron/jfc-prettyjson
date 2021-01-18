@@ -42,11 +42,11 @@ int main(int argc, char **argv)
 
             indent_size_in_spaces = i;
         }
-        catch(std::invalid_argument)
+        catch(const std::invalid_argument &)
         {
             std::cerr << "indent size param must be convertible to an integer. Using default value\n";
         }
-        catch(std::out_of_range)
+        catch(const std::out_of_range &)
         {
             std::cerr << "indent size param out of range. Using default value\n";
         }
@@ -69,7 +69,7 @@ int main(int argc, char **argv)
         }
         /*else {operate on file instead?}*/
     }
-    catch (nlohmann::detail::parse_error e)
+    catch (const nlohmann::detail::parse_error &e)
     {
         std::cout << "JSON Malformed: " << e.what() << "\n";
     }

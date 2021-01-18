@@ -2,4 +2,10 @@
 
 ## jfc-prettyjson
 
-pretty print json filter. See demo/ for usage.
+filter program for validating and pretty printing json data.
+
+Example usage: `curl https://some.json/api | prettyjson | less`
+
+build scripts for linux, mac, windows (mingw). Should support other POSIX systems.
+
+see .travis.yml for build instructions.

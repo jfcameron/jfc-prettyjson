@@ -72,6 +72,8 @@ int main(int argc, char **argv)
     catch (const nlohmann::detail::parse_error &e)
     {
         std::cout << "JSON Malformed: " << e.what() << "\n";
+
+        return EXIT_FAILURE;
     }
 
     return EXIT_SUCCESS;

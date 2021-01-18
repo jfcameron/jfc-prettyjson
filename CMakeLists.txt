@@ -12,9 +12,9 @@ option(JFC_BUILD_TESTS "Build unit tests" OFF)
 add_subdirectory(thirdparty)
 
 jfc_project(executable
-    NAME "jfcjsonpp"
+    NAME "prettyjson"
     VERSION 0.0
-    DESCRIPTION "pretty print json filter"
+    DESCRIPTION "json pretty print filter"
     C++_STANDARD 17
     C_STANDARD 90
 

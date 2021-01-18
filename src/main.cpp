@@ -51,19 +51,27 @@ int main(int argc, char **argv)
             std::cerr << "indent size param out of range. Using default value\n";
         }
     }
-
-    if (!isatty(0)) // I assume stdin is from a pipe if not a tty
-    {
-        std::stringstream stdin_content;
-
-        for (std::string current_line; std::getline(std::cin, current_line);) 
-            stdin_content << current_line << std::endl;
     
-        using namespace nlohmann;
+    try
+    {
+        if (!isatty(0)) // I assume stdin is from a pipe if not a tty
+        {
+            std::stringstream stdin_content;
 
-        const json root = json::parse(stdin_content.str());
+            for (std::string current_line; std::getline(std::cin, current_line);) 
+                stdin_content << current_line << std::endl;
 
-        std::cout << root.dump(indent_size_in_spaces);
+            using namespace nlohmann;
+
+            const json root = json::parse(stdin_content.str());
+
+            std::cout << root.dump(indent_size_in_spaces);
+        }
+        /*else {operate on file instead?}*/
+    }
+    catch (nlohmann::detail::parse_error e)
+    {
+        std::cout << "JSON Malformed: " << e.what() << "\n";
     }
 
     return EXIT_SUCCESS;

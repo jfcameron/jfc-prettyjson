@@ -1,5 +1,5 @@
 # © 2021 Joseph Cameron - All Rights Reserved
-# jfc-jsonpp ci script
+# jfc-prettyjson ci script
 
 dist: bionic 
 sudo: required
